@@ -1,0 +1,57 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{indentfirst} %indentace prvního odstavce
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage[czech]{babel}
+\usepackage{mathdots}
+\usepackage{slashbox}
+
+\begin{document}
+
+\section{}
+$\Rightarrow$:\\
+Máme k dispozici stroj \textbf{M}, který dle zadání vypisuje jazyk $L$. Vytvoříme stroj \textbf{N}, který dostane na vstupu slovo $x \in \{0,1\}^*$. Stroj \textbf{N} spustí stroj \textbf{M} a postupně čte to, co stroj \textbf{M} píše na pásku. Pokud stroj \textbf{N} narazí na řetězec $x$, tak se zastaví v akceptovatelném stavu. Jinými slovy $L \in \textbf{RE}$.
+
+$\Leftarrow$:\\
+Máme k dispozici stroj \textbf{M}, který se zastaví na vstupu $x$, pokud $x \in L$. Stroj \textbf{N} vytvoříme tak, že postupně bude simulovat stroje \textbf{M}, na všech možných vstupech. 
+Množina všech různých vstupů je spočetná, tedy se dá očíslovat přirozenými čísly. 
+
+Nechť stroj $\textbf{M}_i$, značí instanci stroje \textbf{M} se vstupem číslo $i \in \mathbb{N}$. Stroje budeme simulovat následovně:\\
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c } 
+\hline
+\backslashbox{stroj}{krok stroje} & 1. & 2. & 3. & $\dots$ \\
+\hline
+$\textbf{M}_1$ & 1 & 3 & 6 & $\iddots$ \\
+\hline
+$\textbf{M}_2$ & 2 & 5 & 9 & $\iddots$ \\
+\hline
+$\textbf{M}_3$ & 4 & 8 & 13 & $\iddots$ \\
+\hline
+$\textbf{M}_4$ & 7 & 12 & 18 & $\iddots$ \\
+$\vdots$ & $\iddots$ & $\iddots$ & $\iddots$ & $\iddots$ \\
+\end{tabular}
+\end{center}
+
+Je zřejmé, že pro každý vstup dokážeme v konečném čase spočítat $n$. krok.
+
+Pokud $i$. vstup je v jazyku $L$, tak se stroj $\textbf{M}_i$ zastaví. Pokaždé, když se stroj zastaví, tak vypíšeme na pásku jeho vstup a posuneme se na další prázdné políčko.
+
+Vytvořili jsme stroj, který vypisuje jazyk $L$.
+
+\section{}
+$\Rightarrow$:\\
+Máme k dispozici stroj \textbf{M}, který dle zadání vypisuje jazyk $L$. Vytvoříme stroj \textbf{N}, který dostane na vstupu slovo $x \in \{0,1\}^*$. Stroj \textbf{N} spustí stroj \textbf{M} a postupně čte to, co stroj \textbf{M} píše na pásku. Pokud stroj \textbf{N} narazí na řetězec $x$ tak se zastaví v akceptovatelném stavu a na pásku napíše 1. Pokud stroj \textbf{N} narazí na řetězec, který je lexikograficky větší než $x$, tak se zastaví v akceptovatelném stavu a na pásku napíše 0. Jinými slovy $L \in \textbf{R}$.
+
+$\Leftarrow$:\\
+Máme k dispozici stroj \textbf{M}, který se vždy zastaví a jeho výstupem je informace, zda řetězec je obsažen v jazyku $L$. Sestrojme stroj \textbf{N}, který bude postupně volat stroj \textbf{M}, pro všechny možné lexikograficky seřazené vstupy $\{0,1,00,01,10,11,000,001,\dots\}$. Pokud \textbf{M} na vstupu vrátí 1, tak vstup \textbf{N} zapíše na pásku, jinak nic neudělá a volá \textbf{M} s následujícím vstupem.
+
+
+\end{document}
