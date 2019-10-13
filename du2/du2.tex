@@ -1,4 +1,5 @@
 \documentclass[12pt, a4paper]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage[utf8x]{inputenc}
 \usepackage{indentfirst} %indentace prvního odstavce
 \usepackage{mathtools}
@@ -16,10 +17,10 @@
 \begin{document}
 
 \section{}
-$\Rightarrow$:\\
+$\Rightarrow$:
 Máme k dispozici stroj \textbf{M}, který dle zadání vypisuje jazyk $L$. Vytvoříme stroj \textbf{N}, který dostane na vstupu slovo $x \in \{0,1\}^*$. Stroj \textbf{N} spustí stroj \textbf{M} a postupně čte to, co stroj \textbf{M} píše na pásku. Pokud stroj \textbf{N} narazí na řetězec $x$, tak se zastaví v akceptovatelném stavu. Jinými slovy $L \in \textbf{RE}$.
 
-$\Leftarrow$:\\
+$\Leftarrow$:
 Máme k dispozici stroj \textbf{M}, který se zastaví na vstupu $x$, pokud $x \in L$. Stroj \textbf{N} vytvoříme tak, že postupně bude simulovat stroje \textbf{M}, na všech možných vstupech. 
 Množina všech různých vstupů je spočetná, tedy se dá očíslovat přirozenými čísly. 
 
@@ -47,10 +48,10 @@ Pokud $i$. vstup je v jazyku $L$, tak se stroj $\textbf{M}_i$ zastaví. Pokažd�
 Vytvořili jsme stroj, který vypisuje jazyk $L$.
 
 \section{}
-$\Rightarrow$:\\
+$\Rightarrow$:
 Máme k dispozici stroj \textbf{M}, který dle zadání vypisuje jazyk $L$. Vytvoříme stroj \textbf{N}, který dostane na vstupu slovo $x \in \{0,1\}^*$. Stroj \textbf{N} spustí stroj \textbf{M} a postupně čte to, co stroj \textbf{M} píše na pásku. Pokud stroj \textbf{N} narazí na řetězec $x$ tak se zastaví v akceptovatelném stavu a na pásku napíše 1. Pokud stroj \textbf{N} narazí na řetězec, který je lexikograficky větší než $x$, tak se zastaví v akceptovatelném stavu a na pásku napíše 0. Jinými slovy $L \in \textbf{R}$.
 
-$\Leftarrow$:\\
+$\Leftarrow$:
 Máme k dispozici stroj \textbf{M}, který se vždy zastaví a jeho výstupem je informace, zda řetězec je obsažen v jazyku $L$. Sestrojme stroj \textbf{N}, který bude postupně volat stroj \textbf{M}, pro všechny možné lexikograficky seřazené vstupy $\{0,1,00,01,10,11,000,001,\dots\}$. Pokud \textbf{M} na vstupu vrátí 1, tak vstup \textbf{N} zapíše na pásku, jinak nic neudělá a volá \textbf{M} s následujícím vstupem.
 
 
